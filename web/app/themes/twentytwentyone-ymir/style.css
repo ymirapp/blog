@@ -1,0 +1,28 @@
+/*
+ Theme Name:   Twenty Twenty-One (Ymir)
+ Description:  Twenty Twenty-One child theme for Ymir
+ Author:       Carl Alexander
+ Author URI:   https://ymirapp.com
+ Template:     twentytwentyone
+*/
+
+:root {
+    --heading--font-weight-page-title: normal;
+}
+
+@media only screen and (min-width: 652px) {
+    :root {
+        --global--font-size-xl: 2.25rem;
+        --global--font-size-xxl: 3.25rem;
+        --global--font-size-xxxl: 9rem;
+        --heading--font-size-h3: calc(1.25 * var(--global--font-size-lg));
+        --heading--font-size-h2: var(--global--font-size-xl);
+    }
+}
+
+@media only screen and (min-width: 822px) {
+    :root {
+        --responsive--aligndefault-width: min(calc(100vw - 8 * var(--global--spacing-horizontal)), 740px);
+        --responsive--alignwide-width: min(calc(100vw - 8 * var(--global--spacing-horizontal)), 920px);
+    }
+}

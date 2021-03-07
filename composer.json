@@ -1,0 +1,54 @@
+{
+  "name": "ymirapp/blog",
+  "type": "project",
+  "license": "MIT",
+  "description": "Ymir WordPress blog",
+  "homepage": "https://blog.ymirapp.com/",
+  "authors" : [
+    {
+      "name": "Carl Alexander",
+      "email": "support@ymirapp.com",
+      "homepage": "https://ymirapp.com"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org",
+      "only": ["wpackagist-plugin/*", "wpackagist-theme/*"]
+    }
+  ],
+  "require": {
+    "php": ">=7.1",
+    "composer/installers": "^1.10",
+    "oscarotero/env": "^2.1",
+    "roots/bedrock-autoloader": "^1.0",
+    "roots/wordpress": "5.6.2",
+    "roots/wp-config": "1.0.0",
+    "vlucas/phpdotenv": "^5.3",
+    "wpackagist-plugin/passwords-evolved": "^1.2",
+    "wpackagist-theme/chaplin": "^2.6",
+    "wpackagist-theme/twentytwentyone": "^1.1",
+    "ymirapp/wordpress-plugin": "^1.0"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "extra": {
+    "installer-paths": {
+      "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+      "web/app/plugins/{$name}/": ["type:wordpress-plugin"],
+      "web/app/themes/{$name}/": ["type:wordpress-theme"]
+    },
+    "wordpress-install-dir": "web/wp"
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "php -r \"copy('.env.example', '.env');\""
+    ]
+  }
+}

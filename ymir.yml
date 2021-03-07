@@ -1,0 +1,18 @@
+id: 38
+name: ymir-blog
+type: bedrock
+environments:
+  production:
+    build:
+      commands:
+        - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev'
+      include:
+        - web/app/themes/twentytwentyone-ymir
+    domain: blog.ymirapp.com
+  staging:
+    cdn:
+      caching: assets
+    cron: false
+    warmup: false
+    build:
+      - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install'
