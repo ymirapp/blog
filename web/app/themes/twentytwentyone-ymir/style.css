@@ -10,6 +10,29 @@
     --heading--font-weight-page-title: normal;
 }
 
+
+.headerbar {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    background-color: #19191e;
+    color: var(--global--color-white);
+}
+
+.headerbar p {
+    margin: 0 auto;
+    padding: 15px 0;
+    max-width: var(--responsive--alignwide-width);
+}
+
+.headerbar a {
+    color: var(--global--color-white);
+}
+
 @media only screen and (min-width: 652px) {
     :root {
         --global--font-size-xl: 2.25rem;
@@ -24,5 +47,11 @@
     :root {
         --responsive--aligndefault-width: min(calc(100vw - 8 * var(--global--spacing-horizontal)), 740px);
         --responsive--alignwide-width: min(calc(100vw - 8 * var(--global--spacing-horizontal)), 920px);
+    }
+}
+
+@media only screen and (min-width: 652px) {
+    .headerbar {
+        display: block;
     }
 }
