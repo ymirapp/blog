@@ -27,6 +27,7 @@
     "roots/wp-config": "1.0.0",
     "vlucas/phpdotenv": "^5.3",
     "wpackagist-plugin/autodescription": "^4.1",
+    "wpackagist-plugin/google-authenticator": "^0.53.0",
     "wpackagist-plugin/passwords-evolved": "^1.2",
     "wpackagist-plugin/redirection": "^5.0",
     "wpackagist-theme/twentytwentyone": "^1.1",
