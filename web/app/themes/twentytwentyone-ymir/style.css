@@ -65,3 +65,9 @@
         display: block;
     }
 }
+
+@media only screen and (max-width: 652px) {
+    .single .site-main > article > .entry-footer p {
+        margin-bottom: 30px;
+    }
+}
