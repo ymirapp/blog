@@ -10,6 +10,9 @@
     --heading--font-weight-page-title: normal;
 }
 
+.entry-footer {
+    font-size: var(--global--font-size-base);
+}
 
 .headerbar {
     display: none;
@@ -33,18 +36,25 @@
     color: var(--global--color-white);
 }
 
-@media only screen and (min-width: 652px) {
+@media only screen {
     :root {
-        --global--font-size-xl: 2.25rem;
-        --global--font-size-xxl: 3.25rem;
-        --global--font-size-xxxl: 9rem;
-        --heading--font-size-h3: calc(1.25 * var(--global--font-size-lg));
+        --global--font-size-base: 1.125rem;
+        --global--font-size-xl: 1.5rem;
+        --global--font-size-xxl: 2.25rem;
+        --global--font-size-xxxl: 5rem;
+        --global--spacing-vertical: 20px;
         --heading--font-size-h2: var(--global--font-size-xl);
+        --heading--font-size-h3: calc(1.25 * var(--global--font-size-lg));
     }
 }
 
 @media only screen and (min-width: 822px) {
     :root {
+        --global--font-size-base: 1.25rem;
+        --global--font-size-xl: 2.25rem;
+        --global--font-size-xxl: 3.25rem;
+        --global--font-size-xxxl: 9rem;
+        --global--spacing-vertical: 30px;
         --responsive--aligndefault-width: min(calc(100vw - 8 * var(--global--spacing-horizontal)), 740px);
         --responsive--alignwide-width: min(calc(100vw - 8 * var(--global--spacing-horizontal)), 920px);
     }
