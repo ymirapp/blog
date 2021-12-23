@@ -9,6 +9,7 @@ environments:
       include:
         - web/app/themes/twentytwentyone-ymir
     domain: blog.ymirapp.com
+    php: 8.0
   staging:
     cdn:
       caching: assets
