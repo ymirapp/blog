@@ -19,5 +19,15 @@
 
 <?php wp_footer(); ?>
 
+<?php if (is_single()): ?>
+	<script>
+		window.onload = function() {
+			document.querySelectorAll('pre').forEach((block) => {
+				hljs.highlightBlock(block);
+			});
+		};
+	</script>
+<?php endif; ?>
+
 </body>
 </html>

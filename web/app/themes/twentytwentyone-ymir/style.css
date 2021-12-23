@@ -36,6 +36,14 @@
     color: var(--global--color-white);
 }
 
+pre.wp-block-code.hljs {
+    border-radius: .375rem;
+}
+
+.wp-block-code.hljs code {
+    color: inherit;
+}
+
 @media only screen {
     :root {
         --global--font-size-base: 1.125rem;
