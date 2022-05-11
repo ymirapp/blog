@@ -8,6 +8,8 @@ environments:
         - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev'
       include:
         - web/app/themes/twentytwentyone-ymir
+    cdn:
+      process_images: true
     domain: blog.ymirapp.com
     php: 8.0
   staging:
