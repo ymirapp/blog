@@ -11,6 +11,7 @@ environments:
     cdn:
       process_images: true
     domain: blog.ymirapp.com
+    gateway: false
     php: 8.0
   staging:
     cdn:
