@@ -3,6 +3,7 @@ name: ymir-blog
 type: bedrock
 environments:
   production:
+    architecture: arm64
     build:
       commands:
         - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev'
@@ -12,7 +13,7 @@ environments:
       process_images: true
     domain: blog.ymirapp.com
     gateway: false
-    php: 8.0
+    php: 8.1
   staging:
     cdn:
       caching: assets
