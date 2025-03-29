@@ -19,7 +19,7 @@
     }
   ],
   "require": {
-    "php": ">=7.1",
+    "php": "^8.0",
     "composer/installers": "^1.10",
     "oscarotero/env": "^2.1",
     "roots/bedrock-autoloader": "^1.0",

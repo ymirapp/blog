@@ -13,7 +13,7 @@ environments:
       process_images: true
     domain: blog.ymirapp.com
     gateway: false
-    php: 8.1
+    php: 8.4
   staging:
     cdn:
       caching: assets
