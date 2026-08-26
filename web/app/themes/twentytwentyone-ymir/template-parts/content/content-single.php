@@ -34,8 +34,8 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer default-max-width">
-        <p class="is-large-text">Stop worrying about your WordPress server</p>
-        <a class="button" style="text-align: center" href="https://ymirapp.com/register">Start your 14-day trial</a>
+		<p class="is-large-text">Let clients outgrow their hosting.<br>Not your agency.</p>
+		<a class="button" style="text-align: center" href="https://ymirapp.com/agencies">See Ymir for Agencies</a>
 	</footer><!-- .entry-footer -->
 
 </article><!-- #post-<?php the_ID(); ?> -->
