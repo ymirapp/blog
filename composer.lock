@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "876918df666b10907a22dd942897e959",
+    "content-hash": "90bb1449b7e97d62a083385400cf5390",
     "packages": [
         {
             "name": "composer/installers",
@@ -1002,15 +1002,15 @@
         },
         {
             "name": "wpackagist-plugin/google-authenticator",
-            "version": "0.53",
+            "version": "0.56",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/google-authenticator/",
-                "reference": "tags/0.53"
+                "reference": "tags/0.56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/google-authenticator.0.53.zip"
+                "url": "https://downloads.wordpress.org/plugin/google-authenticator.0.56.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
