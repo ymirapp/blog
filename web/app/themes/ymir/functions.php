@@ -40,6 +40,11 @@ const YMIR_BLOG_SHOW_DATE_META_KEY = 'showDate';
 const YMIR_BLOG_EXCERPT_LENGTH = 230;
 
 /**
+ * Old generic social image that's still stored as the SEO plugin fallback and on some posts.
+ */
+const YMIR_BLOG_LEGACY_SOCIAL_IMAGE_URL = 'https://blog.ymirapp.com/uploads/2021/03/ymir-social-blog.png';
+
+/**
  * Register the WordPress features the theme supports.
  */
 function ymir_blog_setup(): void
@@ -109,6 +114,74 @@ function ymir_blog_site_icon_url(string $url, int $size): string
     return get_theme_file_uri('assets/images/android-chrome-512x512.png');
 }
 add_filter('get_site_icon_url', 'ymir_blog_site_icon_url', 10, 2);
+
+/**
+ * Get the image details of the bundled blog social card.
+ */
+function ymir_blog_social_image(): array
+{
+    return [
+        'url' => get_theme_file_uri('assets/images/social-card.png'),
+        'id' => 0,
+        'width' => 1200,
+        'height' => 630,
+        'alt' => __('Ymir Blog: Product updates, guides and perspectives on serverless WordPress and PHP.', 'ymir'),
+        'filesize' => 0,
+    ];
+}
+
+/**
+ * Use the bundled social card when The SEO Framework has no social image fallback setting.
+ *
+ * It comes right after the setting so featured and content images still win, and before the header,
+ * logo and site icon fallbacks.
+ */
+function ymir_blog_social_image_generation_params(array $params, $args, string $context): array
+{
+    if ('social' !== $context) {
+        return $params;
+    }
+
+    $params['fallback'] = array_merge(array_intersect_key($params['fallback'], ['settings' => true]), ['ymir_blog' => fn () => [ymir_blog_social_image()]], $params['fallback']);
+
+    return $params;
+}
+add_filter('the_seo_framework_image_generation_params', 'ymir_blog_social_image_generation_params', 10, 3);
+
+/**
+ * Replace the old generic social image with the bundled social card.
+ *
+ * Maps the stored URL in the output so the fallback setting and the posts that pin it stay untouched.
+ * Clean details keep unique URLs, so only the first card stays, in its place, when old images became cards.
+ */
+function ymir_blog_social_image_details(array $details, $args, bool $single, string $context, bool $clean): array
+{
+    if ('social' !== $context) {
+        return $details;
+    }
+
+    $card = ymir_blog_social_image();
+    $has_card = false;
+
+    foreach ($details as $key => $image) {
+        $url = $image['url'] ?? '';
+
+        if (YMIR_BLOG_LEGACY_SOCIAL_IMAGE_URL !== $url && $card['url'] !== $url) {
+            continue;
+        }
+
+        if ($clean && $has_card) {
+            unset($details[$key]);
+            continue;
+        }
+
+        $details[$key] = YMIR_BLOG_LEGACY_SOCIAL_IMAGE_URL === $url ? $card : $image;
+        $has_card = true;
+    }
+
+    return $clean ? array_values($details) : $details;
+}
+add_filter('the_seo_framework_image_details', 'ymir_blog_social_image_details', 10, 5);
 
 /**
  * Show six editorial articles per collection page, without case studies.

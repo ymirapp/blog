@@ -5,7 +5,7 @@ global $wp_query;
 get_header();
 
 $current_topic = ymir_blog_current_topic();
-$description = __('Guides and perspectives on running WordPress and PHP on serverless AWS.', 'ymir');
+$description = __('Product updates, guides and perspectives on serverless WordPress and PHP.', 'ymir');
 $title = __('Blog', 'ymir');
 
 if (is_search()) {
