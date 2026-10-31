@@ -30,6 +30,7 @@
     "wpackagist-plugin/google-authenticator": "^0.56.0",
     "wpackagist-plugin/passwords-evolved": "^1.2",
     "wpackagist-plugin/redirection": "^5.0",
+    "wpackagist-plugin/safe-svg": "^2.5.2",
     "wpackagist-theme/twentytwentyone": "^1.1",
     "ymirapp/wordpress-plugin": "^1.0"
   },
