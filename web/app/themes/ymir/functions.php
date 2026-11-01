@@ -76,6 +76,7 @@ function ymir_blog_enqueue_assets(): void
         wp_enqueue_script('ymir-highlight', get_theme_file_uri('assets/js/highlight.js'), [], $version, true);
         wp_add_inline_script('ymir-highlight', "document.querySelectorAll('.entry-content pre').forEach((block) => hljs.highlightBlock(block));");
         wp_enqueue_script('ymir-scroll-regions', get_theme_file_uri('assets/js/scroll-regions.js'), [], $version, true);
+        wp_enqueue_script('ymir-diagrams', get_theme_file_uri('assets/js/diagrams.js'), [], (string) filemtime(get_theme_file_path('assets/js/diagrams.js')), true);
     }
 }
 add_action('wp_enqueue_scripts', 'ymir_blog_enqueue_assets');
