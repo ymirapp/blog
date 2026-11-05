@@ -1007,6 +1007,221 @@ hr {
     text-align: left;
 }
 
+/* Article evidence uses native figures, tables, quotations and disclosure elements. */
+.prose :is(.article-evidence, .article-billing, .article-quotation, .article-terminal) {
+    margin-block: 40px;
+}
+
+.prose .evidence-image {
+    display: block;
+    border: 1px solid var(--rule);
+    background: #fff;
+    cursor: zoom-in;
+}
+
+.prose .evidence-image img {
+    width: 100%;
+    border-radius: 0;
+}
+
+.prose .article-evidence[data-compact] {
+    max-width: 34rem;
+    margin-inline: auto;
+}
+
+.prose .evidence-image:hover {
+    border-color: var(--color-copy);
+}
+
+.prose :is(.article-evidence, .article-quotation) > figcaption {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 4px 24px;
+    color: var(--color-copy);
+}
+
+.prose :is(.article-evidence, .article-billing, .article-quotation, .article-terminal) figcaption a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+}
+
+.prose .evidence-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px 20px;
+    padding-block: 16px;
+    border-top: 1px solid var(--color-copy);
+}
+
+.prose .evidence-heading strong {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.prose .evidence-heading > span {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    white-space: nowrap;
+}
+
+.prose .evidence-table {
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-patina) var(--color-paper);
+}
+
+.prose .evidence-table table {
+    display: table;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    overflow: visible;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    font-variant-numeric: tabular-nums;
+}
+
+.prose .evidence-table :is(th, td) {
+    min-width: 0;
+    padding: 12px 16px;
+    border: 0;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+}
+
+.prose .evidence-table th:first-child {
+    padding-left: 12px;
+}
+
+.prose .evidence-table thead th {
+    background: color-mix(in srgb, var(--color-forest) 7%, var(--color-paper));
+    color: var(--color-ink);
+    font-weight: 600;
+}
+
+.prose .evidence-table tbody th {
+    font-weight: 400;
+    color: var(--color-copy);
+}
+
+.prose .evidence-table :is(th, td):last-child {
+    text-align: right;
+    white-space: nowrap;
+    color: var(--color-ink);
+}
+
+.prose .evidence-table td:not(:last-child) {
+    min-width: 9rem;
+}
+
+.prose .evidence-table tfoot :is(th, td) {
+    padding-block: 16px;
+    color: var(--color-ink);
+    font-weight: 600;
+    border-bottom-color: var(--color-copy);
+}
+
+.prose .evidence-details summary {
+    min-height: 44px;
+    padding-block: 12px;
+    font-size: 0.9375rem;
+    cursor: pointer;
+    color: var(--color-ink);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+}
+
+.prose .evidence-details summary:hover {
+    color: var(--link-hover);
+}
+
+.prose .article-billing > figcaption {
+    margin-top: 4px;
+}
+
+.prose .article-quotation {
+    border-top: 1px solid var(--color-copy);
+    border-bottom: 1px solid var(--rule);
+    padding-block: 24px;
+}
+
+.prose .article-quotation blockquote {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-size: clamp(1.125rem, 1rem + 0.35vw, 1.375rem);
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+    color: var(--color-ink);
+}
+
+.prose .article-quotation blockquote p + p {
+    margin-top: 16px;
+}
+
+.prose .article-quotation figcaption {
+    margin-top: 20px;
+}
+
+.prose .evidence-sources {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 20px;
+}
+
+.prose .quotation-chart {
+    margin-top: 24px;
+}
+
+.prose .terminal-heading {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    padding: 12px 24px;
+    background: var(--color-forest);
+    color: var(--color-bone);
+    border-bottom: 1px solid var(--color-patina);
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+}
+
+.prose .article-terminal pre {
+    margin: 0;
+    border-radius: 0;
+    font-size: 0.9375rem;
+    line-height: 1.65;
+}
+
+.prose :is(.article-evidence, .article-billing, .article-quotation, .article-terminal) :is(a, summary, [tabindex]):focus-visible {
+    outline: 2px solid var(--color-copy);
+    outline-offset: 4px;
+}
+
+@media (max-width: 600px) {
+    .prose .evidence-table :is(th, td) {
+        padding: 10px;
+    }
+
+    .prose .evidence-table td:not(:last-child) {
+        min-width: 0;
+    }
+
+    .prose .terminal-heading {
+        padding-inline: 16px;
+    }
+
+    .prose .article-terminal pre {
+        padding: 16px;
+    }
+}
+
 .prose hr {
     margin-block: 40px;
     border-color: var(--rule);

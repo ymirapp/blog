@@ -9,6 +9,11 @@ document.querySelectorAll('.entry-content pre, .entry-content table').forEach((r
     }
 
     if ('TABLE' === region.tagName) {
+        // Authored evidence tables already have a named, keyboard-focusable scroll region.
+        if (region.parentElement.matches('.evidence-table, .table-scroll')) {
+            return;
+        }
+
         // Tables scroll inside a focusable wrapper so the table element keeps its native display, role and attributes.
         const wrapper = document.createElement('div');
 

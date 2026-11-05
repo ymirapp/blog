@@ -64,7 +64,7 @@ function ymir_blog_enqueue_assets(): void
 {
     $version = wp_get_theme()->get('Version');
 
-    wp_enqueue_style('ymir', get_stylesheet_uri(), [], $version);
+    wp_enqueue_style('ymir', get_stylesheet_uri(), [], (string) filemtime(get_theme_file_path('style.css')));
     wp_enqueue_script('ymir-navigation', get_theme_file_uri('assets/js/navigation.js'), [], $version, true);
 
     if (is_home() && !is_paged()) {
@@ -75,7 +75,7 @@ function ymir_blog_enqueue_assets(): void
         wp_enqueue_style('ymir-highlight', get_theme_file_uri('assets/css/highlight.min.css'), ['ymir'], $version);
         wp_enqueue_script('ymir-highlight', get_theme_file_uri('assets/js/highlight.js'), [], $version, true);
         wp_add_inline_script('ymir-highlight', "document.querySelectorAll('.entry-content pre').forEach((block) => hljs.highlightBlock(block));");
-        wp_enqueue_script('ymir-scroll-regions', get_theme_file_uri('assets/js/scroll-regions.js'), [], $version, true);
+        wp_enqueue_script('ymir-scroll-regions', get_theme_file_uri('assets/js/scroll-regions.js'), [], (string) filemtime(get_theme_file_path('assets/js/scroll-regions.js')), true);
         wp_enqueue_script('ymir-diagrams', get_theme_file_uri('assets/js/diagrams.js'), [], (string) filemtime(get_theme_file_path('assets/js/diagrams.js')), true);
     }
 }
