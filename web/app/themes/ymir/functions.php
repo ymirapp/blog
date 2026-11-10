@@ -4,6 +4,7 @@
  * Topic categories shown in the collection navigation, keyed by category slug.
  */
 const YMIR_BLOG_TOPICS = [
+    'product' => 'Product',
     'guide' => 'Guides',
     'technology' => 'Technology',
     'opinion' => 'Opinion',
