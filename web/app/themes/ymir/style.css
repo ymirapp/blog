@@ -960,6 +960,15 @@ hr {
     color: var(--color-ink);
 }
 
+/* Match the docs' inline code treatment without changing fenced code or widgets. */
+.prose code:not(:where(pre *, .not-prose, .not-prose *)) {
+    font-size: 0.875em;
+    padding: 2px 4px;
+    border: 0;
+    border-radius: 3px;
+    background: #e7e8db;
+}
+
 .prose pre {
     margin-block: 28px;
     padding: 24px;
