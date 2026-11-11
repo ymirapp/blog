@@ -69,7 +69,7 @@ function ymir_blog_enqueue_assets(): void
     wp_enqueue_script('ymir-navigation', get_theme_file_uri('assets/js/navigation.js'), [], $version, true);
 
     if (is_home() && !is_paged()) {
-        wp_enqueue_script('ymir-cover', get_theme_file_uri('assets/js/cover.js'), [], $version, true);
+        wp_enqueue_script('ymir-cover', get_theme_file_uri('assets/js/cover.js'), [], (string) filemtime(get_theme_file_path('assets/js/cover.js')), true);
     }
 
     if (is_singular()) {
@@ -304,8 +304,7 @@ function ymir_blog_category_label(WP_Term $category): string
 /**
  * Get the 8:5 cover of a post.
  *
- * The bundled illustration sits beneath the featured image so it shows when the post has no featured
- * image or when the image fails to load (`assets/js/cover.js` removes broken images).
+ * PHP selects the initial image; the bundled fallback stays inert until a featured image fails to load.
  */
 function ymir_blog_cover(int $post_id): string
 {
@@ -317,8 +316,8 @@ function ymir_blog_cover(int $post_id): string
         'sizes' => YMIR_BLOG_COVER_SIZES,
     ]);
 
-    return sprintf(
-        '<div class="blog-cover"><img src="%s" srcset="%s" sizes="%s" alt="" width="1200" height="751" decoding="async">%s</div>',
+    $fallback = sprintf(
+        '<img src="%s" srcset="%s" sizes="%s" alt="" width="1200" height="751" decoding="async">',
         esc_url(get_theme_file_uri('assets/images/blog-cover-technical.webp')),
         esc_attr(sprintf(
             '%s 600w, %s 900w, %s 1200w',
@@ -326,8 +325,13 @@ function ymir_blog_cover(int $post_id): string
             esc_url(get_theme_file_uri('assets/images/blog-cover-technical-900.webp')),
             esc_url(get_theme_file_uri('assets/images/blog-cover-technical.webp'))
         )),
-        YMIR_BLOG_COVER_SIZES,
-        $image
+        YMIR_BLOG_COVER_SIZES
+    );
+
+    return sprintf(
+        '<div class="blog-cover">%s%s</div>',
+        $image ?: $fallback,
+        $image ? '<template>'.$fallback.'</template>' : ''
     );
 }
 
