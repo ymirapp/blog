@@ -464,8 +464,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-03-22T13:26:54+00:00",
-            "published-time": "2026-11-18T17:14:22+00:00"
+            "time": "2026-03-22T13:26:54+00:00"
         },
         {
             "name": "roots/wordpress-core-installer",
@@ -603,8 +602,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2026-11-18T17:13:39+00:00",
-            "published-time": "2026-11-18T17:13:48+00:00"
+            "time": "2026-11-18T17:13:39+00:00"
         },
         {
             "name": "roots/wp-config",
@@ -1094,16 +1092,16 @@
         },
         {
             "name": "ymirapp/wordpress-plugin",
-            "version": "v1.29.0",
+            "version": "v1.30.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ymirapp/wordpress-plugin.git",
-                "reference": "7e8db24a20a123d4b5978e4205b3541a239bf367"
+                "reference": "dc58feb09418d0241c14f740c0ccf2fb0463a631"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ymirapp/wordpress-plugin/zipball/7e8db24a20a123d4b5978e4205b3541a239bf367",
-                "reference": "7e8db24a20a123d4b5978e4205b3541a239bf367",
+                "url": "https://api.github.com/repos/ymirapp/wordpress-plugin/zipball/dc58feb09418d0241c14f740c0ccf2fb0463a631",
+                "reference": "dc58feb09418d0241c14f740c0ccf2fb0463a631",
                 "shasum": ""
             },
             "require": {
@@ -1155,9 +1153,9 @@
             ],
             "support": {
                 "issues": "https://github.com/ymirapp/wordpress-plugin/issues",
-                "source": "https://github.com/ymirapp/wordpress-plugin/tree/v1.29.0"
+                "source": "https://github.com/ymirapp/wordpress-plugin/tree/v1.30.0"
             },
-            "time": "2026-10-15T02:23:34+00:00"
+            "time": "2026-11-18T04:08:11+00:00"
         }
     ],
     "packages-dev": [],
@@ -1170,5 +1168,5 @@
         "php": "^8.0"
     },
     "platform-dev": {},
-    "plugin-api-version": "2.11.0"
+    "plugin-api-version": "2.9.0"
 }
